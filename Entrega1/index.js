@@ -20,6 +20,6 @@ switch (respuesta) {
         break;
 
     default:
-        alert("Usted no ha seleccionado el NINGÚN CICLO >:C");
+        alert("Usted no ha seleccionado NINGÚN CICLO >:C");
         break;
 }
