@@ -7,7 +7,6 @@ function agregar(){
     let id = parseInt(document.querySelector("#idAgregar").value);
     productos.push({nombre: nombre, precio: precio, id: id});
     mostrar();
-    console.log(Math.max(3, 2, 100));
 }
 
 function eliminar(){
