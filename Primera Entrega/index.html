@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Primera Entrega del Proyecto Final</title>
+</head>
+<body>
+    <div id="lista">
+        <h1>Listas de productos</h2>
+    </div>
+    <div id="agregar">
+        <h2>Agregar producto</h2>
+        <label for="nombre">Ingrese el nombre del producto</label>
+        <input type="text" name="nombre" id="nombre"><br>
+        <label for="nombre">Ingrese el precio del producto</label>
+        <input type="text" name="nombre" id="precio"><br>
+        <label for="id">Ingrese ID del producto</label>
+        <input type="text" name="nombre" id="idAgregar"><br>
+        <button onclick="agregar()">AGREGAR</button>
+    </div>
+
+    <div id="eliminar">
+        <h2>Eliminar producto</h2>
+        <label for="id">Ingrese el ID del producto</label>
+        <input type="text" name="nombre" id="idEliminar">
+        <button onclick="eliminar()">ELIMINAR</button>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
