@@ -1,0 +1,69 @@
+body{
+    text-align: center;
+}
+
+header{
+    background-color: rgb(210, 252, 182);
+    padding: 1px;
+}
+
+#listaProductos{
+    display: grid;
+    grid-template-areas: "contenedor contenedor contenedor" "agregar modificar eliminar";
+    border: 2px solid black;
+}
+
+#contenedor{
+    grid-area: contenedor;
+    border: 2px solid black;
+    background-color: rgb(182, 252, 211);
+}
+
+#agregar{
+    grid-area: agregar;
+    border: 2px solid black;
+    background-color: rgb(182, 252, 211);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#modificar{
+    grid-area: modificar;
+    border: 2px solid black;
+    background-color: rgb(182, 252, 211);
+}
+
+#eliminar{
+    grid-area: eliminar;
+    border: 2px solid black;
+    background-color: rgb(182, 252, 211);
+}
+
+#listaCarrito{
+    display: grid;
+    grid-template-areas: "contenedorCarrito contenedorCarrito" "agregarCarrito limpiarCarrito";
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+}
+
+#contenedorCarrito{
+    grid-area: contenedorCarrito;
+    border: 2px solid black;
+    background-color: rgb(182, 252, 252);
+}
+
+#agregarCarrito{
+    grid-area: agregarCarrito;
+    border: 2px solid black;
+    background-color: rgb(182, 252, 252);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#limpiarCarrito{
+    grid-area: limpiarCarrito;
+    border: 2px solid black;
+    background-color: rgb(182, 252, 252);
+}

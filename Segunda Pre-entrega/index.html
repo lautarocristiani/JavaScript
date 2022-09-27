@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>SEGUNDA PRE-ENTREGA</title>
+</head>
+<body>
+    <header>
+        <h1>SEGUNDA PRE-ENTREGA</h1>
+    </header>
+    <div id="listaProductos">
+        <div id="contenedor">
+            <h2>Lista de productos</h2>
+        </div>
+        <div id="agregar">
+            <h2>Agregar producto</h2>
+            <label for="nombre">Ingrese el nombre del producto</label>
+            <input type="text" name="nombre" id="nombre">
+            <label for="precio">Ingrese el precio del producto</label>
+            <input type="text" name="precio" id="precio">
+            <label for="idAgregar">Ingrese ID del producto</label>
+            <input type="text" name="idAgregar" id="idAgregar">
+            <button onclick="agregar()">AGREGAR</button>
+        </div>
+        <div id="modificar">
+            <h2>Modificar producto</h2>
+            <label for="idModificar">Ingrese el ID del producto</label>
+            <input type="text" name="idModificar" id="idModificar">
+            <button onclick="modificar()">MODIFICAR</button>
+        </div>
+        <div id="eliminar">
+            <h2>Eliminar producto</h2>
+            <label for="idEliminar">Ingrese el ID del producto</label>
+            <input type="text" name="idEliminar" id="idEliminar">
+            <button onclick="eliminar()">ELIMINAR</button>
+            <h2>Eliminar lista completa</h2>
+            <button onclick="limpiarLista()">LIMPIAR LISTA</button>
+        </div>
+    </div>
+    <div id="listaCarrito">
+        <div id="contenedorCarrito">
+            <h2>Carrito</h2>
+        </div>
+        <div id="agregarCarrito">
+            <h2>Agregar producto al carrito</h2>
+            <label for="idCarrito">Ingrese el ID del producto</label>
+            <input type="text" name="idCarrito" id="idCarrito">
+            <label for="cantidadCarrito">Ingrese la cantidad deseada</label>
+            <input type="text" name="cantidadCarrito" id="cantidadCarrito">
+            <button onclick="agregarCarrito()">AGREGAR AL CARRITO</button>
+        </div>
+        <div id="limpiarCarrito">
+            <h2>LIMPIAR CARRITO</h2>
+            <button onclick="limpiarCarrito()">LIMPIAR CARRITO</button>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
