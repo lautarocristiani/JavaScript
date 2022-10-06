@@ -23,7 +23,10 @@ function agregar() {
         } else {
             listaAgregar.push(new Producto(nombre, precio, id));
             localStorage.setItem("listaProductos", JSON.stringify(listaAgregar));
-            alert("Producto agregado con éxito");
+            Swal.fire({
+                icon: 'success',
+                text: 'Producto agregado con éxito!'
+              })    
             mostrar();
         }
     } else{
@@ -31,11 +34,17 @@ function agregar() {
             listaAgregar.push(new Producto(p.nombre, p.precio, p.id))
         }
         if (Number.isNaN(precio) || Number.isNaN(id) || listaAgregar.find((p) => p.id == id) || listaAgregar.find((p) => p.nombre.toUpperCase() == nombre.toUpperCase())) {
-            alert("Ingrese correctamente los valores");
+            Swal.fire({
+                icon: 'error',
+                text: 'Ingrese correctamente los valores'
+              }) 
         } else {
             listaAgregar.push(new Producto(nombre, precio, id));
             localStorage.setItem("listaProductos", JSON.stringify(listaAgregar));
-            alert("Producto agregado con éxito");
+            Swal.fire({
+                icon: 'success',
+                text: 'Producto agregado con éxito!',
+              })   
             mostrar();
         }
     }
@@ -57,11 +66,17 @@ function eliminar(){
             listaEliminar.splice(i, 1);
             localStorage.setItem("listaProductos", JSON.stringify(listaEliminar))
             mostrar();
-            alert("Producto eliminado con éxito.");
+            Swal.fire({
+                icon: 'success',
+                text: 'Producto eliminado con éxito!'
+              })   
         }
     }
     if (encontro == 0) {
-        alert("No se ha encontrado el producto ingresado.");
+        Swal.fire({
+            icon: 'warning',
+            text: 'No se ha encontrado el producto ingresado'
+          })   
     }
 }
 
@@ -76,31 +91,50 @@ function modificar() {
     }
     let resultado = listaModificar.find((p) => p.id == idModificar);
     if (resultado != null) {
-        let id = parseInt(prompt("Ingrese el nuevo ID del producto"));
-        while (Number.isNaN(id) || listaModificar.find((p) => p.id == id)) {
-            id = parseInt(prompt("Ingrese correctamente el nuevo ID"));
-        }
-        let nombre = prompt("Ingrese el nuevo nombre del producto");
-        while (nombre == "" || listaModificar.find((p) => p.nombre.toUpperCase() == nombre.toUpperCase())) {
-            nombre = prompt("Ingrese correctamente el nuevo NOMBRE");
-        }
-        let precio = parseInt(prompt("Ingrese el nuevo precio del producto"));
-        while (Number.isNaN(precio)) {
-            precio = parseInt(prompt("Ingrese correctamente el nuevo PRECIO"));
-        }
-        listaModificar.forEach(producto => {
-            if (producto.id == idModificar) {
-                producto.id = id;
-                producto.nombre = nombre;
-                producto.precio = precio;
-            }});
-            localStorage.setItem("listaProductos", JSON.stringify(listaModificar));
-        } else {
-        alert("El ID ingresado no se encuentra en la lista")
-    }
-    mostrar();
-}
+        (async () => {
 
+            const { value: respuesta } = await Swal.fire({
+              title: 'Multiple inputs',
+              html:
+              '<label>Ingrese el nuevo ID</label>' +
+              '<input id="idModificar2" class="swal2-input"><br><br>' +
+              '<label>Ingrese el nuevo Nombre</label>' +
+              '<input id="nombreModificar" class="swal2-input"><br><br>' +
+              '<label>Ingrese el nuevo Precio</label>' +
+              '<input id="precioModificar" class="swal2-input">',
+              focusConfirm: false,
+              preConfirm: () => {
+                return [
+                    parseInt(document.getElementById('idModificar2').value),
+                    document.getElementById('nombreModificar').value,
+                    parseInt(document.getElementById('precioModificar').value)
+                ]
+              }
+            })
+            if (Number.isNaN(respuesta[0]) || listaModificar.find((p) => p.id == respuesta[0]) || respuesta[1] == "" || listaModificar.find((p) => p.nombre.toUpperCase() == respuesta[1].toUpperCase()) || Number.isNaN(respuesta[2])) {
+                Swal.fire({
+                    icon: 'error',
+                    text: 'Ingrese correctamente los valores'
+                })
+            } else {
+                listaModificar.forEach(producto => {
+                    if (producto.id == idModificar) {
+                        producto.id = respuesta[0];
+                        producto.nombre = respuesta[1];
+                        producto.precio = respuesta[2];
+                    }});
+                    localStorage.setItem("listaProductos", JSON.stringify(listaModificar));
+                    mostrar();
+            }
+            })()
+        } else {
+            Swal.fire({
+                icon: 'error',
+                text: 'El ID ingresado no se encuentra en la lista'
+              }) 
+              mostrar();
+    }
+}
 
 
 function mostrar() {
@@ -110,7 +144,7 @@ function mostrar() {
         limpiarLista[i].remove();
     }
     let listaMostrar = [];
-    if (listaProductos == null) {
+    if (listaProductos == null || listaProductos.length == 0) {
         let contenedor = document.querySelector("#contenedor");
         let noProductos = document.createElement("h3");
         noProductos.className = "nolista";
@@ -158,7 +192,10 @@ function agregarCarrito() {
             sessionStorage.setItem("listaCarrito", JSON.stringify(listaAgregar));
             mostrarCarrito();
         } else {
-            alert("Ingrese correctamente los valores");
+            Swal.fire({
+                icon: 'error',
+                text: 'Ingrese correctamente los valores'
+              }) 
         }
     } else{
         for (const p of listaCarrito) {
@@ -175,7 +212,10 @@ function agregarCarrito() {
             sessionStorage.setItem("listaCarrito", JSON.stringify(listaAgregar));
             mostrarCarrito();
         } else {
-            alert("Ingrese correctamente los valores");
+            Swal.fire({
+                icon: 'error',
+                text: 'Ingrese correctamente los valores'
+              }) 
         }
     }
 }
