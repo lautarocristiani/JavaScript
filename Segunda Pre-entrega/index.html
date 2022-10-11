@@ -15,6 +15,11 @@
         <div id="contenedor">
             <h2>Lista de productos</h2>
         </div>
+        <div class="productosPredeterminados">
+            <h2>¿Desea agregar productos predeterminados?</h2>
+            <button id="productosPredeterminados">¡Clickea aquí!</button>
+            <p>AVISO: Si carga productos predeterminados se eliminaran todos los productos cargados anteriormente.</p>
+        </div>
         <div id="agregar">
             <h2>Agregar producto</h2>
             <label for="nombre">Ingrese el nombre del producto</label>
@@ -23,21 +28,21 @@
             <input type="text" name="precio" id="precio">
             <label for="idAgregar">Ingrese ID del producto</label>
             <input type="text" name="idAgregar" id="idAgregar">
-            <button onclick="agregar()">AGREGAR</button>
+            <button id="botonAgregar">AGREGAR</button>
         </div>
         <div id="modificar">
             <h2>Modificar producto</h2>
             <label for="idModificar">Ingrese el ID del producto</label>
             <input type="text" name="idModificar" id="idModificar">
-            <button onclick="modificar()">MODIFICAR</button>
+            <button id="botonModificar">MODIFICAR</button>
         </div>
         <div id="eliminar">
             <h2>Eliminar producto</h2>
             <label for="idEliminar">Ingrese el ID del producto</label>
             <input type="text" name="idEliminar" id="idEliminar">
-            <button onclick="eliminar()">ELIMINAR</button>
+            <button id="botonEliminar">ELIMINAR</button>
             <h2>Eliminar lista completa</h2>
-            <button onclick="limpiarLista()">LIMPIAR LISTA</button>
+            <button id="botonLimpiar">LIMPIAR LISTA</button>
         </div>
     </div>
     <div id="listaCarrito">
@@ -50,11 +55,11 @@
             <input type="text" name="idCarrito" id="idCarrito">
             <label for="cantidadCarrito">Ingrese la cantidad deseada</label>
             <input type="text" name="cantidadCarrito" id="cantidadCarrito">
-            <button onclick="agregarCarrito()">AGREGAR AL CARRITO</button>
+            <button id="botonAgregarCarrito">AGREGAR AL CARRITO</button>
         </div>
         <div id="limpiarCarrito">
             <h2>LIMPIAR CARRITO</h2>
-            <button onclick="limpiarCarrito()">LIMPIAR CARRITO</button>
+            <button id="botonLimpiarCarrito">LIMPIAR CARRITO</button>
         </div>
     </div>
     <script src="./index.js"></script>

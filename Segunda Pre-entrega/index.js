@@ -6,10 +6,30 @@ class Producto{
     }
 }
 
+document.getElementById("productosPredeterminados").addEventListener("click", productosPredeterminados);
+document.getElementById("botonAgregar").addEventListener("click", agregar);
+document.getElementById("botonEliminar").addEventListener("click", eliminar);
+document.getElementById("botonModificar").addEventListener("click", modificar);
+document.getElementById("botonLimpiar").addEventListener("click", limpiarLista);
+document.getElementById("botonAgregarCarrito").addEventListener("click", agregarCarrito);
+document.getElementById("botonLimpiarCarrito").addEventListener("click", limpiarCarrito);
 mostrar();
 mostrarCarrito();
 
 // FUNCIONES LISTA PRODUCTOS
+
+function productosPredeterminados() {
+    let lista = [];
+    fetch('productos.json')
+        .then((r) => r.json())
+        .then((data) => {
+            data.forEach(p => {
+                lista.push(new Producto(p.nombre, p.precio, p.id));
+        });
+        localStorage.setItem("listaProductos", JSON.stringify(lista));
+        mostrar();
+    })
+}
 
 function agregar() {
     let listaProductos = JSON.parse(localStorage.getItem("listaProductos"));
